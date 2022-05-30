@@ -1,33 +1,68 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { InputForm } from './input_form';
+import { InputForm } from './pages/input_form';
+import { Link, Router, Route, Routes } from "react-router-dom";
 
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { Grid , Button} from '@material-ui/core';
+
+
+import {Navbar} from './nav';
+import {Faq} from "./pages/faq";
 
 function sayHello() {
   alert('You clicked me!');
 }
 
-function App() {
-  return (
-    <div className="App">
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+    link: {
+      color: '#ffffff',
       
-      <header className="App-header">
-        <InputForm/>
-        <button onClick={sayHello}>Alert</button>
-        <a
-          className="App-link"
-          href="https://github.com/jakubchod/test-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Show repo
-        </a>
-      </header>
+    },
+  }),
+);
+
+
+
+function App() {
+  const classes = useStyles();
+  
+  return (
+    <div className={classes.root}>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<p>Home</p>} />
+        <Route path="/about" element={
+          <Grid container justifyContent="center">
+            <Box sx={{ width:"75%"}}><button onClick={sayHello}>Hi!</button> 
+              <a
+                className="App-link"
+                href="https://github.com/jakubchod/test-app"
+                target="_blank"
+              >
+              Show repo
+              </a>
+            </Box>
+            </Grid>} />
+        <Route path="/contact" element={<InputForm/>} />
+        <Route path="/faq" element={<Faq/>} />
+      </Routes>
+    
     </div>
   );
 }
 
 export default App;
+
+
