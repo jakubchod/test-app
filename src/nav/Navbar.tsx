@@ -65,6 +65,9 @@ export const Navbar=() => {
             <Link to="/" className={classes.link}>
               Home
             </Link>
+            <Link to="/weather" className={classes.link}>
+              Weather
+            </Link>
             <Link to="/about" className={classes.link}>
               About
             </Link>

@@ -6,35 +6,13 @@ import {
   ListItem,
   ListItemText
 } from "@material-ui/core";
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    
-    link:{
-        textDecoration:"none",
-        color: "blue",
-        fontSize: "20px",
-    },
-    icon:{
-        color: "white"
-    /*  link: {
-        textDecoration: "none",
-        color: "white",
-        fontSize: "20px",
-        marginLeft: theme.spacing(20),
-        "&:hover": {
-          color: "yellow",
-        },
-      },*/}
-  }),
-);
 
 export const DrawerComp = () => {
-const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <>
@@ -46,6 +24,11 @@ const classes = useStyles();
          <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               <Link to="/">Home</Link>
+            </ListItemText>
+          </ListItem>
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Link to="/weather">Weather</Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>

@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
-import { InputForm } from './pages/input_form';
-import { Link, Router, Route, Routes } from "react-router-dom";
+
+import {Route, Routes } from "react-router-dom";
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Box from '@mui/material/Box';
-import { Grid , Button} from '@material-ui/core';
+import { Grid} from '@material-ui/core';
 
 
 import {Navbar} from './nav';
+import { InputForm } from './pages/input_form';
 import {Faq} from "./pages/faq";
+import {WeatherTab} from "./pages/weather";
 
 function sayHello() {
   alert('You clicked me!');
@@ -43,6 +45,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<p>Home</p>} />
+        <Route path="/weather" element={<WeatherTab/>}/>
         <Route path="/about" element={
           <Grid container justifyContent="center">
             <Box sx={{ width:"75%"}}><button onClick={sayHello}>Hi!</button> 
